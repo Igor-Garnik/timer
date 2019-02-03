@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'timer';
+  couterProgress: number = 0;
+  totalCountdown: number = 5;
+
+  constructor() { }
+
+  updateProgress($event): void {
+    this.couterProgress = (this.totalCountdown - $event) / this.totalCountdown * 100;
+  }
+
+  countdownFinished(): void {
+    console.log('conutdown finished')
+  }
 }
